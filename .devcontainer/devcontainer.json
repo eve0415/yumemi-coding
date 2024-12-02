@@ -3,6 +3,7 @@
   "build": {
     "dockerfile": "Dockerfile"
   },
+  "postStartCommand": "pnpm install --frozen-lockfile",
   "containerEnv": {
     "HOSTNAME": "0.0.0.0"
   },
@@ -15,7 +16,8 @@
         "github.vscode-github-actions",
         "ambar.bundle-size",
         "bradlc.vscode-tailwindcss",
-        "EditorConfig.EditorConfig"
+        "EditorConfig.EditorConfig",
+        "ms-playwright.playwright"
       ],
       "settings": {
         "editor.formatOnSave": true,
