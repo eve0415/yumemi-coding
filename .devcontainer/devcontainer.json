@@ -64,9 +64,7 @@
           "fallbackPolling": "dynamicPriorityPolling",
           "watchFile": "useFsEventsOnParentDirectory",
           "synchronousWatchDirectory": true,
-          "excludeDirectories": [
-            "**/node_modules/**/*"
-          ]
+          "excludeDirectories": ["**/node_modules/**/*"]
         },
         "workbench.editor.customLabels.patterns": {
           "**/app/**/page.tsx": "${dirname} - Page",
