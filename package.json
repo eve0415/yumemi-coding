@@ -1,0 +1,53 @@
+{
+	"name": "yumemi-coding",
+	"private": true,
+	"scripts": {
+		"dev": "next dev --turbopack",
+		"build": "next build",
+		"start": "next start",
+		"lint": "next lint --fix . && biome check --write --unsafe",
+		"test": "playwright test",
+		"postinstall": "playwright install --with-deps"
+	},
+	"engines": {
+		"node": ">=22 <23"
+	},
+	"packageManager": "pnpm@9.14.4+sha512.c8180b3fbe4e4bca02c94234717896b5529740a6cbadf19fa78254270403ea2f27d4e1d46a08a0f56c89b63dc8ebfd3ee53326da720273794e6200fcf0d184ab",
+	"devDependencies": {
+		"@biomejs/biome": "1.9.4",
+		"@eslint/eslintrc": "^3.2.0",
+		"@next/env": "^15.0.3",
+		"@playwright/test": "^1.49.0",
+		"@tailwindcss/postcss": "4.0.0-beta.3",
+		"@total-typescript/ts-reset": "^0.6.1",
+		"@types/eslint__eslintrc": "^2.1.2",
+		"@types/node": "^22.10.1",
+		"@types/react": "npm:types-react@rc",
+		"@types/react-dom": "npm:types-react-dom@rc",
+		"babel-plugin-react-compiler": "19.0.0-beta-df7b47d-20241124",
+		"clsx": "^2.1.1",
+		"eslint": "^9.16.0",
+		"eslint-config-next": "^15.0.3",
+		"eslint-plugin-react-compiler": "19.0.0-beta-df7b47d-20241124",
+		"next": "^15.0.3",
+		"openapi-fetch": "^0.13.1",
+		"openapi-typescript": "^7.4.4",
+		"playwright": "^1.49.0",
+		"postcss": "^8.4.49",
+		"react": "19.0.0-rc-66855b96-20241106",
+		"react-dom": "19.0.0-rc-66855b96-20241106",
+		"react-is": "19.0.0-rc-66855b96-20241106",
+		"recharts": "^2.13.3",
+		"tailwind-merge": "^2.5.5",
+		"tailwindcss": "4.0.0-beta.3",
+		"typescript": "^5.7.2",
+		"typescript-eslint": "^8.16.0"
+	},
+	"pnpm": {
+		"overrides": {
+			"@types/react": "npm:types-react@rc",
+			"@types/react-dom": "npm:types-react-dom@rc",
+			"react-is": "$react-is"
+		}
+	}
+}
