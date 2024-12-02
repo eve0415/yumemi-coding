@@ -1,0 +1,6 @@
+# Auto detect text files and perform LF normalization
+* text=auto eol=lf
+*.bat       eol=crlf
+
+.env*             linguist-language=Dotenv
+pnpm-lock.yaml    linguist-generated
