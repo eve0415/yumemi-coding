@@ -10,8 +10,7 @@ jobs:
     if: github.event_name == 'deployment_status' && github.event.deployment_status.state == 'success'
     permissions:
       contents: read
-    env:
-      DEPLOYMENT_URL: ${{ github.event.deployment_status.environment_url }}
+      actions: write
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
