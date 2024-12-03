@@ -32,6 +32,7 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+
       - name: Setup pnpm
         run: corepack enable pnpm
 
@@ -46,6 +47,9 @@ jobs:
 
       - name: Install Dependencies
         run: pnpm install --frozen-lockfile
+
+      - name: Install playwright dependencies
+        run: pnpm playwright install --with-deps
 
       - name: Generate type from OpenAPI schema
         run: pnpm generate
