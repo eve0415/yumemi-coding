@@ -6,8 +6,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint --fix . && biome check --write --unsafe",
-    "test": "playwright test",
-    "postinstall": "playwright install --with-deps"
+    "test": "playwright test"
   },
   "engines": {
     "node": ">=22 <23"

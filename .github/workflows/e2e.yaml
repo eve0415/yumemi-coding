@@ -1,0 +1,24 @@
+name: E2E Tests
+
+on:
+  deployment_status:
+
+jobs:
+  lighthouse:
+    name: Run lighthouse
+    runs-on: ubuntu-latest
+    if: github.event_name == 'deployment_status' && github.event.deployment_status.state == 'success'
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Audit URLs using Lighthouse
+        uses: treosh/lighthouse-ci-action@v12
+        with:
+          runs: 5
+          urls: |
+            ${{ github.event.deployment_status.environment_url }}
+          budgetPath: ./budget.json
+          configPath: ./lighthouserc.json

@@ -3,7 +3,7 @@
   "build": {
     "dockerfile": "Dockerfile"
   },
-  "postStartCommand": "pnpm install --frozen-lockfile",
+  "postStartCommand": "pnpm install --frozen-lockfile && pnpm playwright install --with-deps",
   "containerEnv": {
     "HOSTNAME": "0.0.0.0"
   },
