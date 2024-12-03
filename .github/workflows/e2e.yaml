@@ -16,6 +16,14 @@ jobs:
       - name: Audit URLs using Lighthouse
         uses: treosh/lighthouse-ci-action@v12
         with:
+          runs: 5
           urls: |
             ${{ github.event.deployment_status.environment_url }}
           budgetPath: ./budget.json
+          configPath: ./lighthouserc.json
+
+      - name: Display Lighthouse results
+        uses: manrueda/lighthouse-report-action@master
+        with:
+          reports: .lighthouseci
+          github-token: ${{ secrets.GITHUB_TOKEN }}
