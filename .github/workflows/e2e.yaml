@@ -22,3 +22,35 @@ jobs:
             ${{ github.event.deployment_status.environment_url }}
           budgetPath: ./budget.json
           configPath: ./lighthouserc.json
+
+  e2e:
+    name: Run e2e tests
+    runs-on: ubuntu-latest
+    if: github.event_name == 'deployment_status' && github.event.deployment_status.state == 'success'
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Setup pnpm
+        run: corepack enable pnpm
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: package.json
+          cache: pnpm
+
+      - name: Setup Biome
+        uses: biomejs/setup-biome@v2
+
+      - name: Install Dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Generate type from OpenAPI schema
+        run: pnpm generate
+
+      - name: Run e2e tests
+        run: pnpm test
+        env:
+          DEPLOYMENT_URL: ${{ github.event.deployment_status.environment_url }}
