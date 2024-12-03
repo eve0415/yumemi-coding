@@ -133,3 +133,6 @@ dist
 # Cloudflare
 .worker-next
 .wrangler
+
+# OpenAPI types
+**/api/*.d.ts

@@ -28,6 +28,9 @@ jobs:
       - name: Install Dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Generate type from OpenAPI schema
+        run: pnpm generate
+
       - name: Lint Check
         run: pnpm next lint .
 
@@ -65,6 +68,9 @@ jobs:
 
       - name: Install Dependencies
         run: pnpm install --frozen-lockfile
+
+      - name: Generate type from OpenAPI schema
+        run: pnpm generate
 
       - name: Build Check
         run: pnpm build
