@@ -6,7 +6,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint --fix . && biome check --write --unsafe",
-    "test": "playwright test"
+    "test": "playwright test",
+    "generate": "openapi-typescript https://yumemi-frontend-engineer-codecheck-api.vercel.app/specification --output ./src/api/resas.d.ts --exportName ResasApi --alphabetize --array-length --immutable"
   },
   "engines": {
     "node": ">=22 <23"
