@@ -13,6 +13,9 @@ jobs:
     env:
       DEPLOYMENT_URL: ${{ github.event.deployment_status.environment_url }}
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
       - name: Audit URLs using Lighthouse
         uses: treosh/lighthouse-ci-action@v12
         with:
