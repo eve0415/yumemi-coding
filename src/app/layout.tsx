@@ -5,6 +5,11 @@ import './global.css';
 
 export const metadata: Metadata = {
   title: 'フロントエンドコーディング試験',
+  robots: {
+    index: false,
+    noarchive: true,
+    nocache: true,
+  },
 };
 
 const RootLayout: FC<PropsWithChildren> = ({ children }) => {
