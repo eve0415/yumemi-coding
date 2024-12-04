@@ -1,10 +1,14 @@
 'use client';
-import type { FC, PropsWithChildren } from 'react';
 
-const PrefectureCheckbox: FC<PropsWithChildren> = ({ children }) => {
+import type { FC, PropsWithChildren } from 'react';
+import { useResasViewer } from '../ResasViewer';
+
+const PrefectureCheckbox: FC<PropsWithChildren<{ prefCode: number }>> = ({ children, prefCode }) => {
+  const { selected, setSelected, isUpdating } = useResasViewer();
+
   return (
-    <label>
-      <input type='checkbox' />
+    <label aria-disabled={isUpdating}>
+      <input type='checkbox' checked={selected.includes(prefCode)} onChange={() => setSelected(prefCode)} disabled={isUpdating} />
 
       {children}
     </label>
