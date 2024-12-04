@@ -58,3 +58,5 @@ jobs:
         run: pnpm test
         env:
           DEPLOYMENT_URL: ${{ github.event.deployment_status.environment_url }}
+          YUMEMI_FRONT_CODING_EXAM_API_URL: ${{ secrets.YUMEMI_FRONT_CODING_EXAM_API_URL }}
+          YUMEMI_FRONT_CODING_EXAM_API_KEY: ${{ secrets.YUMEMI_FRONT_CODING_EXAM_API_KEY }}
