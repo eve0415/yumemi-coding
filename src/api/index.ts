@@ -13,5 +13,7 @@ export const api = createClient<paths>({
   next: { revalidate: 60 * 60 },
 });
 
-if (process.env.YUMEMI_FRONT_CODING_EXAM_API_URL) taintUniqueValue('Do not expose sonmin api url', api, process.env.YUMEMI_FRONT_CODING_EXAM_API_URL);
-if (process.env.YUMEMI_FRONT_CODING_EXAM_API_KEY) taintUniqueValue('Do not expose sonmin api key', api, process.env.YUMEMI_FRONT_CODING_EXAM_API_KEY);
+if (process.env.NODE_ENV === 'production') {
+  if (process.env.YUMEMI_FRONT_CODING_EXAM_API_URL) taintUniqueValue('Do not expose sonmin api url', api, process.env.YUMEMI_FRONT_CODING_EXAM_API_URL);
+  if (process.env.YUMEMI_FRONT_CODING_EXAM_API_KEY) taintUniqueValue('Do not expose sonmin api key', api, process.env.YUMEMI_FRONT_CODING_EXAM_API_KEY);
+}
