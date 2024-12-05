@@ -2,11 +2,6 @@
 
 import { api } from '@/api';
 
-/**
- * Revalidate every 1 hour
- */
-const revalidate = 60 * 60;
-
 const PopulationType = {
   total: '総人口',
   young: '年少人口',
@@ -28,8 +23,6 @@ export const getCompositionPerYear = async (prefCode: number[], populationType: 
       ...c,
       data: await api.GET('/api/v1/population/composition/perYear', {
         params: { query: { prefCode: `${c.prefCode}` } },
-        next: { revalidate },
-        cache: 'force-cache',
       }),
     })),
   );
