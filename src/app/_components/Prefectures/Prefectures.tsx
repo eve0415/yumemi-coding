@@ -9,7 +9,9 @@ const Prefectures: FC = async () => {
   return (
     <div>
       {data.result.map(({ prefCode, prefName }) => (
-        <PrefectureCheckbox key={prefCode}>{prefName}</PrefectureCheckbox>
+        <PrefectureCheckbox key={prefCode} prefCode={prefCode}>
+          {prefName}
+        </PrefectureCheckbox>
       ))}
     </div>
   );
