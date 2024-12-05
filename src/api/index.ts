@@ -11,6 +11,7 @@ export const api = createClient<paths>({
   headers: { 'X-API-KEY': process.env.YUMEMI_FRONT_CODING_EXAM_API_KEY },
   // revalidate every hour
   next: { revalidate: 60 * 60 },
+  cache: 'force-cache',
 });
 
 if (process.env.NODE_ENV === 'production') {

@@ -137,5 +137,6 @@ dist
 # OpenAPI types
 **/api/*.d.ts
 
-# e2e
+# playwright
 test-results
+__screenshots__

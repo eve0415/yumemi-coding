@@ -6,7 +6,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint --fix . && biome check --write --unsafe",
-    "test": "playwright test",
+    "test": "pnpm test:vitest & pnpm test:playwright",
+    "test:vitest": "vitest",
+    "test:playwright": "playwright test",
     "generate": "openapi-typescript https://yumemi-frontend-engineer-codecheck-api.vercel.app/specification --output ./src/api/resas.d.ts --exportName ResasApi --alphabetize --array-length --immutable"
   },
   "engines": {
@@ -19,11 +21,16 @@
     "@next/env": "^15.0.3",
     "@playwright/test": "^1.49.0",
     "@tailwindcss/postcss": "4.0.0-beta.3",
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.0.1",
     "@total-typescript/ts-reset": "^0.6.1",
     "@types/eslint__eslintrc": "^2.1.2",
     "@types/node": "^22.10.1",
     "@types/react": "npm:types-react@rc",
     "@types/react-dom": "npm:types-react-dom@rc",
+    "@vitejs/plugin-react": "^4.3.4",
+    "@vitest/browser": "^2.1.8",
     "babel-plugin-react-compiler": "19.0.0-beta-df7b47d-20241124",
     "clsx": "^2.1.1",
     "eslint": "^9.16.0",
@@ -41,7 +48,8 @@
     "tailwind-merge": "^2.5.5",
     "tailwindcss": "4.0.0-beta.3",
     "typescript": "^5.7.2",
-    "typescript-eslint": "^8.16.0"
+    "typescript-eslint": "^8.16.0",
+    "vitest": "^2.1.8"
   },
   "pnpm": {
     "overrides": {
