@@ -36,3 +36,30 @@ jobs:
 
       - name: Format Check
         run: biome ci --reporter=github
+
+  test:
+    name: Unit test
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        run: corepack enable pnpm
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: package.json
+          cache: pnpm
+
+      - name: Install Dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Install playwright dependencies
+        run: pnpm playwright install --with-deps
+
+      - name: Run unit test
+        run: pnpm vitest
