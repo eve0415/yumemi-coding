@@ -34,7 +34,6 @@ test('it should remove check when api returned without success', async () => {
       <PrefectureCheckbox prefCode={2}>TEST2</PrefectureCheckbox>
     </ResasViewerProvider>,
   );
-  screen.debug();
 
   const checkbox = screen.getByRole('checkbox');
   expect(checkbox).not.toBeDisabled();
