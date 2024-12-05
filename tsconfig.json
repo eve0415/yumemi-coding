@@ -29,6 +29,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["*.ts", "*.mjs", "src", "e2e", ".next/types/**/*.ts"],
+  "include": ["*.ts", "*.mts", "*.mjs", "src", "e2e", ".next/types/**/*.ts"],
   "exclude": ["node_modules"]
 }
