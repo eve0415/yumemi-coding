@@ -16,7 +16,7 @@ const RootLayout: FC<PropsWithChildren> = ({ children }) => {
   return (
     <html lang='ja'>
       <body>
-        <main>{children}</main>
+        <main className='flex flex-col border'>{children}</main>
       </body>
     </html>
   );

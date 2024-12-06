@@ -7,11 +7,13 @@ import { getCompositionPerYear } from './actions';
 const TopPage: FC = () => {
   return (
     <>
-      <h1>フロントエンドコーディング試験</h1>
+      <h1 className='flex border-b justify-center p-2'>フロントエンドコーディング試験</h1>
 
       <ResasViewerProvider fetchData={getCompositionPerYear}>
-        <p className='prefectures'>都道府県</p>
-        <Prefectures />
+        <div className='mx-8 mb-8 mt-4'>
+          <p className='border mb-4 w-fit p-2'>都道府県</p>
+          <Prefectures />
+        </div>
 
         <Charts />
       </ResasViewerProvider>
