@@ -31,9 +31,7 @@ export default defineConfig({
   projects: [
     {
       name: 'Desktop Chrome',
-      use: {
-        ...devices['Desktop Chrome'],
-      },
+      use: devices['Desktop Chrome'],
     },
     {
       name: 'Desktop Firefox',
@@ -43,15 +41,11 @@ export default defineConfig({
     },
     {
       name: 'Desktop Safari',
-      use: {
-        ...devices['Desktop Safari'],
-      },
+      use: devices['Desktop Safari'],
     },
     {
       name: 'Mobile Chrome',
-      use: {
-        ...devices['Pixel 5'],
-      },
+      use: devices['Pixel 5'],
     },
     {
       name: 'Mobile Safari',
