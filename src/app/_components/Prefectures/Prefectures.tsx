@@ -7,7 +7,7 @@ const Prefectures: FC = async () => {
   if (!data) return null;
 
   return (
-    <div>
+    <div className='grid grid-cols-[repeat(auto-fill,minmax(theme(spacing.24),1fr))] gap-x-4'>
       {data.result.map(({ prefCode, prefName }) => (
         <PrefectureCheckbox key={prefCode} prefCode={prefCode}>
           {prefName}
