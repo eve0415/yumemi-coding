@@ -10,7 +10,7 @@ const TopPage: FC = () => {
       <h1>フロントエンドコーディング試験</h1>
 
       <ResasViewerProvider fetchData={getCompositionPerYear}>
-        <p className='prefectures'>都道府県</p>
+        <p>都道府県</p>
         <Prefectures />
 
         <Charts />
