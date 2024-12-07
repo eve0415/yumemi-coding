@@ -1,4 +1,4 @@
-import { api } from '@/api';
+import { api, PopulationType } from '@/api';
 import { expect, test } from '@playwright/test';
 
 test('Page can be rendered', async ({ page }) => {
@@ -20,6 +20,20 @@ test('Button should be clickable', async ({ page }) => {
 
   await label.click();
   await expect(label).toBeChecked();
+});
+
+test('Select menu should be useable', async ({ page }) => {
+  await page.goto('/');
+
+  const select = page.getByRole('combobox');
+  await expect(select).toBeInViewport();
+  await expect(select).toHaveValue('total');
+
+  const options = page.locator('option');
+  expect(await options.allInnerTexts()).toStrictEqual(Object.values(PopulationType));
+
+  await select.selectOption({ index: 1 });
+  await expect(select).toHaveValue('young');
 });
 
 test('Chart can be rendered', async ({ page }) => {

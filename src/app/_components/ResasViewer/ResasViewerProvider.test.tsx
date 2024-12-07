@@ -38,6 +38,30 @@ test('it should get data successfully', async () => {
   expect(result.current.data).toStrictEqual({ codes: [1], boundaryYear: 2024, data: [] });
 });
 
+test('it should change population type successfully', async () => {
+  const fn = vi.fn<typeof getCompositionPerYear>(codes => Promise.resolve({ codes, boundaryYear: 2024, data: [] }));
+
+  const wrapper: FC<PropsWithChildren> = ({ children }) => <ResasViewerProvider fetchData={fn}>{children}</ResasViewerProvider>;
+  const { result, rerender } = renderHook(() => useResasViewer(), { wrapper });
+
+  act(() => {
+    result.current.setSelected(1);
+  });
+  rerender();
+  await waitFor(() => expect(result.current.isUpdating).toBeFalsy());
+  expect(fn).toHaveBeenCalledOnce();
+
+  act(() => {
+    result.current.setType('young');
+  });
+  rerender();
+  await waitFor(() => expect(result.current.isUpdating).toBeFalsy());
+
+  expect(fn).toHaveBeenCalledTimes(2);
+
+  expect(result.current.type).toStrictEqual('young');
+});
+
 afterEach(() => {
   cleanup();
 });

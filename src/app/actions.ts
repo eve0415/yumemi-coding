@@ -1,15 +1,10 @@
 'use server';
 
-import { api } from '@/api';
+import { api, PopulationType } from '@/api';
 
-const PopulationType = {
-  total: '総人口',
-  young: '年少人口',
-  workingAge: '生産年齢人口',
-  elderly: '老年人口',
-} as const;
+const isPopulationType = (type: string): type is keyof typeof PopulationType => Object.keys(PopulationType).includes(type);
 
-export const getCompositionPerYear = async (prefCode: number[], populationType: keyof typeof PopulationType) => {
+export const getCompositionPerYear = async (prefCode: number[], populationType: string) => {
   const { data: prefectures } = await api.GET('/api/v1/prefectures');
   if (!prefectures) return null;
 
@@ -41,7 +36,8 @@ export const getCompositionPerYear = async (prefCode: number[], populationType: 
 
   const dataByYear = new Map<number, { year: number; [key: string]: number }>();
   for (const { name, result } of data) {
-    for (const { year, value } of result.data.find(({ label }) => label === PopulationType[populationType])?.data ?? []) {
+    for (const { year, value } of result.data.find(({ label }) => label === PopulationType[isPopulationType(populationType) ? populationType : 'total'])
+      ?.data ?? []) {
       const existing = dataByYear.get(year);
       dataByYear.set(year, { year, ...existing, [name]: value });
     }
