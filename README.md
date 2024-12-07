@@ -17,7 +17,7 @@ Vercel: <https://yumemi-coding-ashen.vercel.app>
 - Node.js v22 (LTS)
 - Next.js (React v19)
 - TypeScript
-- Tailwind CSS
+- Tailwind CSS (v4.0 Beta)
 
 ### フォーマッター・Linter
 
@@ -58,7 +58,7 @@ pnpm test
 
 ### テストバージョン
 
-全てのライブラリは開発時点での最新バージョンを使用しています（一部は最新どころか、canary バージョンを使用しています）。
+全てのライブラリは開発時点での最新バージョンを使用しています（一部は最新どころか、canary バージョンを使用しています）。  
 [Playwright がサポートしているブラウザバージョンでテストしています。](https://playwright.dev/docs/release-notes#browser-versions)
 
 ## 参考資料など
