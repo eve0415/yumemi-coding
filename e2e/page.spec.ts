@@ -58,8 +58,15 @@ test('Light/Dark mode', async ({ page }) => {
 
       return window.getComputedStyle(body).backgroundColor;
     });
-
     expect(bgColor, 'Light color is not expected').toBe('rgb(255, 255, 255)');
+
+    const textColor = await page.evaluate(() => {
+      const h1 = document.querySelector('h1');
+      if (!h1) throw new Error('Body not found');
+
+      return window.getComputedStyle(h1).color;
+    });
+    expect(textColor, 'Text is not readable in light mode').toBe('rgb(0, 0, 0)');
   }
 
   await page.emulateMedia({ colorScheme: 'dark' });
@@ -71,7 +78,14 @@ test('Light/Dark mode', async ({ page }) => {
 
       return window.getComputedStyle(body).backgroundColor;
     });
-
     expect(bgColor, 'Dark color is not expected').toBe('rgb(3, 7, 17)');
+
+    const textColor = await page.evaluate(() => {
+      const h1 = document.querySelector('h1');
+      if (!h1) throw new Error('Body not found');
+
+      return window.getComputedStyle(h1).color;
+    });
+    expect(textColor, 'Text is not readable in dark mode').not.toBe('rgb(0, 0, 0)');
   }
 });
