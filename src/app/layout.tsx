@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 
 const RootLayout: FC<PropsWithChildren> = ({ children }) => {
   return (
-    <html lang='ja'>
+    <html lang='ja' className='scheme-light-dark'>
       <body>
         <main className='flex flex-col border'>{children}</main>
       </body>

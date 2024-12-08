@@ -8,7 +8,7 @@ const Charts: FC = () => {
   const { data } = useResasViewer();
 
   return (
-    <ResponsiveContainer className='min-h-[400px] w-[80%] mb-4'>
+    <ResponsiveContainer className='mb-4 min-h-[400px] w-[80%]'>
       <LineChart margin={{ left: 50, right: 60, top: 30 }} data={data?.data} accessibilityLayer>
         <XAxis dataKey='year' label={{ value: '年度', position: 'right', offset: 25 }} />
         <YAxis label={{ value: '人口数', position: 'top', offset: 10 }} tickFormatter={(t: number) => t.toLocaleString()} />
