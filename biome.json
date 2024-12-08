@@ -69,6 +69,7 @@
         "useAdjacentOverloadSignatures": "error",
         "useAriaPropsSupportedByRole": "error",
         "useConsistentMemberAccessibility": "error",
+        "useSortedClasses": "error",
         "useTrimStartEnd": "error"
       }
     }
@@ -87,5 +88,8 @@
       "jsxQuoteStyle": "single",
       "quoteStyle": "single"
     }
+  },
+  "css": {
+    "linter": { "enabled": true }
   }
 }
