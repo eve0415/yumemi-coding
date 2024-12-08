@@ -14,7 +14,7 @@
   "engines": {
     "node": ">=22 <23"
   },
-  "packageManager": "pnpm@9.14.4+sha512.c8180b3fbe4e4bca02c94234717896b5529740a6cbadf19fa78254270403ea2f27d4e1d46a08a0f56c89b63dc8ebfd3ee53326da720273794e6200fcf0d184ab",
+  "packageManager": "pnpm@9.15.0+sha512.76e2379760a4328ec4415815bcd6628dee727af3779aaa4c914e3944156c4299921a89f976381ee107d41f12cfa4b66681ca9c718f0668fa0831ed4c6d8ba56c",
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
     "@eslint/eslintrc": "^3.2.0",
@@ -27,12 +27,11 @@
     "@total-typescript/ts-reset": "^0.6.1",
     "@types/eslint__eslintrc": "^2.1.2",
     "@types/node": "^22.10.1",
-    "@types/react": "^19.0.0",
-    "@types/react-dom": "^19.0.0",
+    "@types/react": "^19.0.1",
+    "@types/react-dom": "^19.0.1",
     "@vitejs/plugin-react": "^4.3.4",
     "@vitest/browser": "^2.1.8",
     "babel-plugin-react-compiler": "19.0.0-beta-df7b47d-20241124",
-    "clsx": "^2.1.1",
     "eslint": "^9.16.0",
     "eslint-config-next": "^15.0.4",
     "eslint-plugin-react-compiler": "19.0.0-beta-df7b47d-20241124",
@@ -45,7 +44,6 @@
     "react-dom": "^19.0.0",
     "react-is": "^19.0.0",
     "recharts": "^2.14.1",
-    "tailwind-merge": "^2.5.5",
     "tailwindcss": "4.0.0-beta.5",
     "typescript": "^5.7.2",
     "typescript-eslint": "^8.17.0",
